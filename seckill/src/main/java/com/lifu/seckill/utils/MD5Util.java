@@ -13,26 +13,26 @@ public class MD5Util {
 
     //第一次加密
     public static String inputPassToFromPass(String inputPass){
-        String str = SALT.charAt(0) + SALT.charAt(7) + inputPass
-            + SALT.charAt(1) + SALT.charAt(6);
+        String str = "" + SALT.charAt(0) + SALT.charAt(7) + inputPass +
+                SALT.charAt(1) + SALT.charAt(6);
             return md5(str);
     }
 
     //第二次加密
-    public static String formPassToDBPass(String fromPass , String salt){
-        String str = SALT.charAt(2) + SALT.charAt(5) + fromPass
-                + SALT.charAt(3) + SALT.charAt(4);
-        return md5(str); //?
+    public static String fromPassToDBPass(String fromPass , String salt){
+        String str = "" + salt.charAt(2) + salt.charAt(5) + fromPass
+                + salt.charAt(3) + salt.charAt(4);
+        return md5(str);
     }
 
     public static String inputPassToDBPass(String inputPass , String salt){
-        return formPassToDBPass( inputPassToFromPass(inputPass) , salt);
+        return fromPassToDBPass( inputPassToFromPass(inputPass) , salt);
     }
 
     public static void main(String[] args) {
         //test
-        System.out.println(inputPassToFromPass("111"));
-        System.out.println(formPassToDBPass(inputPassToFromPass("111") , SALT));
-        System.out.println(inputPassToDBPass("111" , SALT));
+        System.out.println(inputPassToFromPass("123456"));
+        System.out.println(fromPassToDBPass("9982327109b91929b5fdd8a0597257da" , SALT));
+        System.out.println(inputPassToDBPass("123456" , SALT));
     }
 }

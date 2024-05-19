@@ -4,7 +4,7 @@ spring:
     cache: false
     #mysql数据源
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/seckill?userUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: 123
@@ -26,11 +26,13 @@ spring:
       #测试连接是否可用的查询语句
       connection-test-query: SELECT 1
 
+
 mybatis-plus:
   #配置Mapper.xml映射文件
   mapper-locations: classpath*:/mapper/*Mapper.xml
   #配置数据返回类型的别名
   type-aliases-package: com.lifu.seckill.pojo
+
 
 # MyBatis SQL打印(方法接口所在的包)
 logging:
