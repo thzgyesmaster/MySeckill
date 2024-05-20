@@ -21,17 +21,18 @@ public class GoodsController {
     private UserService userService;
 
     @RequestMapping("toList")
-    public String toList(HttpServletRequest request , HttpServletResponse response, @CookieValue("userTicket")String ticket , Model model){
+    public String toList(User user , Model model){
 
-        if(StringUtils.isEmpty(ticket)){
-            return "login";
-        }
+//        if(StringUtils.isEmpty(ticket)){
+//            return "login";
+//        }
+//
+//        //User user = (User) session.getAttribute(ticket);
+//        User user = userService.getUserByCookie(ticket, request, response);
+//        if(user == null){
+//            return "login";
+//        }
 
-        //User user = (User) session.getAttribute(ticket);
-        User user = userService.getUserByCookie(ticket, request, response);
-        if(user == null){
-            return "login";
-        }
 
         model.addAttribute("user" , user);
 

@@ -5,25 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad4df60d-ea26-49ed-9bf4-7571d4550e8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/GoodsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/exception/GlobalException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/utils/CookieUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/utils/UUIDUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/validator/IsMobile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/IsMobileValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/seckill/src/main/resources/templates/goodsList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/579a9387-8d40-4cff-85df-0252d9ce5385.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/579a9387-8d40-4cff-85df-0252d9ce5385.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/config/UserArgumentResolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/config/WebConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/LoginVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/LoginVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/RespBeanEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/RespBeanEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/GoodsController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +153,7 @@
       <workItem from="1716086325326" duration="1952000" />
       <workItem from="1716090009968" duration="14298000" />
       <workItem from="1716107286390" duration="8521000" />
-      <workItem from="1716171268336" duration="5280000" />
+      <workItem from="1716171268336" duration="7459000" />
     </task>
     <servers />
   </component>
