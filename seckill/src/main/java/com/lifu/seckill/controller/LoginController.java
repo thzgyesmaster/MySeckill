@@ -3,6 +3,9 @@ package com.lifu.seckill.controller;
 import com.lifu.seckill.service.UserService;
 import com.lifu.seckill.vo.LoginVo;
 import com.lifu.seckill.vo.RespBean;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +34,7 @@ public class LoginController {
      */
     @PostMapping("/doLogin")
     @ResponseBody
-    public RespBean doLogin(LoginVo loginVo){
-        return userService.doLogin(loginVo);
+    public RespBean doLogin(@Valid LoginVo loginVo , HttpServletRequest request , HttpServletResponse response){
+        return userService.doLogin(loginVo , response , request);
     }
 }

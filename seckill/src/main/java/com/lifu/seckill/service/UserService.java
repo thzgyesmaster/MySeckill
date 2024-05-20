@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.lifu.seckill.pojo.User;
 import com.lifu.seckill.vo.LoginVo;
 import com.lifu.seckill.vo.RespBean;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * <p>
@@ -15,5 +17,10 @@ import com.lifu.seckill.vo.RespBean;
  */
 public interface UserService extends IService<User> {
 
-    RespBean doLogin(LoginVo loginVo);
+    RespBean doLogin(LoginVo loginVo, HttpServletResponse response, HttpServletRequest request);
+
+    /**
+     * 根据cookie获取用户的值
+     */
+    User getUserByCookie(String userTicket , HttpServletRequest request , HttpServletResponse response);
 }
