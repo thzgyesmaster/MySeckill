@@ -18,4 +18,19 @@
         id, goods_name, goods_title, goods_img, goods_detail, goods_price, goods_stock
     </sql>
 
+    <select id="findGoodsVo" resultType="com.lifu.seckill.vo.GoodsVo">
+        SELECT g.id , g.goods_name , g.goods_title , g.goods_img , g.goods_detail , g.goods_price , g.goods_stock ,
+               s.seckill_price , s.stock_count , s.start_date , s.end_date
+        FROM t_goods g
+        LEFT JOIN t_seckill_goods s ON g.id = s.goods_id
+    </select>
+    <select id="findGoodsVoByGoodsId" resultType="com.lifu.seckill.vo.GoodsVo">
+        SELECT g.id , g.goods_name , g.goods_title , g.goods_img , g.goods_detail , g.goods_price , g.goods_stock ,
+               s.seckill_price , s.stock_count , s.start_date , s.end_date
+        FROM t_goods g
+        LEFT JOIN t_seckill_goods s ON g.id = s.goods_id
+        where g.id = #{goodsId}
+    </select>
+
+
 </mapper>
