@@ -66,6 +66,7 @@ public class GoodsController {
         int secKillStatus = 0;
         //秒杀倒计时
         int remainSeconds = 0;
+
         if(nowDate.before(startDate)){
             remainSeconds = (int) ( (startDate.getTime() - nowDate.getTime()) / 1000 );
         }else if(nowDate.after(endDate)){

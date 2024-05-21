@@ -2,6 +2,7 @@ package com.lifu.seckill.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.lifu.seckill.pojo.SeckillGoods;
+import com.lifu.seckill.vo.GoodsVo;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.lifu.seckill.pojo.SeckillGoods;
  */
 public interface SeckillGoodsMapper extends BaseMapper<SeckillGoods> {
 
+    GoodsVo findGoodsVoBySeckillGoodsId(Long goodsId);
 }

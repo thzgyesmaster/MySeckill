@@ -20,11 +20,13 @@ public class WebConfig implements WebMvcConfigurer {
             "classpath:/resources/",
             "classpath:/static/" };
 
+    //使参数解析器生效
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
         resolvers.add(userArgumentResolver);
     }
 
+    //视图解析器
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**")

@@ -51,7 +51,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 //            return RespBean.error(RespBeanEnum.LOGIN_MOBILE_ERROR);
 //        }
 
-        //根据数据库查手机号是否存在
+        //根据数据库查Id是否存在
         User user = userMapper.selectById(mobile);
         if(user == null){
             throw new GlobalException(RespBeanEnum.LOGIN_ERROR);
@@ -81,7 +81,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             return null;
         }
 
-        User user = (User)redisTemplate.opsForValue().get("user:" + userTicket);
+        User user = (User)redisTemplate.opsForValue().get("user:" + userTicket); //从redis中获取
+
         if(user != null){
             CookieUtils.setCookie(request,response,"userTicket",userTicket);
         }

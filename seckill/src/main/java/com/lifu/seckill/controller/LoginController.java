@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("login")
 @Slf4j
 public class LoginController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/toLogin")
+    @RequestMapping("toLogin")
     public String toLogin(){
         return "login";
     }

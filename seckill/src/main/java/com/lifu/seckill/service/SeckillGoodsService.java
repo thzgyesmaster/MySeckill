@@ -2,6 +2,7 @@ package com.lifu.seckill.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lifu.seckill.pojo.SeckillGoods;
+import com.lifu.seckill.vo.GoodsVo;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.lifu.seckill.pojo.SeckillGoods;
  */
 public interface SeckillGoodsService extends IService<SeckillGoods> {
 
+    public GoodsVo findGoodsVoBySeckillGoodsId(Long goodsId);
 }
