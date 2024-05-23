@@ -3,8 +3,10 @@ package com.lifu.seckill.vo;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.lifu.seckill.utils.ValidatorUtil;
 import com.lifu.seckill.validator.IsMobile;
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
 
 public class IsMobileValidator implements ConstraintValidator<IsMobile,String> {
 
@@ -20,7 +22,7 @@ public class IsMobileValidator implements ConstraintValidator<IsMobile,String> {
         if (required){  //必填校验
             return ValidatorUtil.isMobile(value);
         }else{  //如果不是必填
-            if (StringUtils.isEmpty(value)){
+            if (StringUtils.isBlank(value)){
                 return true;
             }else{  //非必填校验
                 return ValidatorUtil.isMobile(value);

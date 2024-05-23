@@ -3,16 +3,18 @@ package com.lifu.seckill.config;
 import com.lifu.seckill.pojo.User;
 import com.lifu.seckill.service.UserService;
 import com.lifu.seckill.utils.CookieUtils;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
-import org.thymeleaf.util.StringUtils;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 
 @Component
 public class UserArgumentResolver implements HandlerMethodArgumentResolver {
@@ -28,18 +30,16 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
     }
 
     @Override
-    public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
+    public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer modelAndViewContainer, NativeWebRequest nativeWebRequest, WebDataBinderFactory webDataBinderFactory) throws Exception {
+        HttpServletRequest reuqest = nativeWebRequest.getNativeRequest(HttpServletRequest.class);
+        HttpServletResponse response = nativeWebRequest.getNativeResponse(HttpServletResponse.class);
+        String ticket = CookieUtils.getCookieValue(reuqest, "userTicket");
 
-        HttpServletRequest request = webRequest.getNativeRequest(HttpServletRequest.class);
-        HttpServletResponse response = webRequest.getNativeResponse(HttpServletResponse.class);
-
-
-        String ticket = CookieUtils.getCookieValue(request, "userTicket");
-
-        if(StringUtils.isEmpty(ticket)){
+        if (StringUtils.isEmpty(ticket)){
             return null;
         }
 
-        return userService.getUserByCookie(ticket, request , response);
+        // 返回user 对象
+        return userService.getUserByCookie(ticket,reuqest,response);
     }
 }

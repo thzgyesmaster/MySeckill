@@ -1,9 +1,10 @@
 package com.lifu.seckill.vo;
 
 import com.lifu.seckill.validator.IsMobile;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotNull;
 
 @Data
 public class LoginVo {

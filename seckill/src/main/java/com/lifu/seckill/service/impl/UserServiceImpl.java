@@ -11,12 +11,13 @@ import com.lifu.seckill.utils.UUIDUtil;
 import com.lifu.seckill.vo.LoginVo;
 import com.lifu.seckill.vo.RespBean;
 import com.lifu.seckill.vo.RespBeanEnum;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * <p>
