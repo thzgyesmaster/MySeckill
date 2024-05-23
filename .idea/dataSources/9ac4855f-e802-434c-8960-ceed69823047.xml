@@ -760,7 +760,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="228" parent="1" name="seckill">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-05-20.11:40:58</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-05-22.07:09:30</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="229" parent="1" name="sm_db">
@@ -799,12 +799,14 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <column id="239" parent="234" name="id">
-      <AutoIncrement>4</AutoIncrement>
+      <AutoIncrement>3</AutoIncrement>
+      <Comment>商品ID</Comment>
       <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="240" parent="234" name="goods_name">
+    <column id="240" parent="234" name="goods name">
+      <Comment>商品名称</Comment>
       <DasType>varchar(16)|0s</DasType>
       <Position>2</Position>
     </column>
@@ -814,6 +816,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>3</Position>
     </column>
     <column id="242" parent="234" name="goods_img">
+      <Comment>商品图片</Comment>
       <DasType>varchar(64)|0s</DasType>
       <Position>4</Position>
     </column>
@@ -829,7 +832,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>6</Position>
     </column>
     <column id="245" parent="234" name="goods_stock">
-      <Comment>商品库存,-1表示没有限制</Comment>
+      <Comment>商品库存，-1表示没有限制</Comment>
       <DasType>int(11)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <Position>7</Position>
@@ -845,21 +848,24 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="248" parent="235" name="id">
-      <AutoIncrement>12</AutoIncrement>
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>订单id</Comment>
       <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="249" parent="235" name="user_id">
+      <Comment>用户id</Comment>
       <DasType>bigint(20)|0s</DasType>
       <Position>2</Position>
     </column>
     <column id="250" parent="235" name="goods_id">
+      <Comment>商品ID</Comment>
       <DasType>bigint(20)|0s</DasType>
       <Position>3</Position>
     </column>
     <column id="251" parent="235" name="delivery_addr_id">
-      <Comment>收货地址ID</Comment>
+      <Comment>收货地址id</Comment>
       <DasType>bigint(20)|0s</DasType>
       <Position>4</Position>
     </column>
@@ -880,19 +886,19 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>7</Position>
     </column>
     <column id="255" parent="235" name="order_channel">
-      <Comment>订单渠道,用状态码表示:1pc,2android,3.ios</Comment>
+      <Comment>1pc,2android,3ios</Comment>
       <DasType>tinyint(4)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <Position>8</Position>
     </column>
     <column id="256" parent="235" name="status">
-      <Comment>订单状态:0新建未支付,1已支付,2已发货,3已送达,4已退款,5已完成</Comment>
+      <Comment>订单状态：0新建未支付，1已支付，2已发货，3已收货，4已退款， 5已完成</Comment>
       <DasType>tinyint(4)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <Position>9</Position>
     </column>
     <column id="257" parent="235" name="create_date">
-      <Comment>订单创建时间</Comment>
+      <Comment>订单的创建时间</Comment>
       <DasType>datetime|0s</DasType>
       <Position>10</Position>
     </column>
@@ -913,11 +919,13 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </key>
     <column id="261" parent="236" name="id">
       <AutoIncrement>3</AutoIncrement>
+      <Comment>秒杀商品id</Comment>
       <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="262" parent="236" name="goods_id">
+      <Comment>商品id</Comment>
       <DasType>bigint(20)|0s</DasType>
       <Position>2</Position>
     </column>
@@ -953,20 +961,24 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="269" parent="237" name="id">
-      <AutoIncrement>3</AutoIncrement>
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>秒杀订单id</Comment>
       <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="270" parent="237" name="user_id">
+      <Comment>用户id</Comment>
       <DasType>bigint(20)|0s</DasType>
       <Position>2</Position>
     </column>
     <column id="271" parent="237" name="order_id">
+      <Comment>订单id</Comment>
       <DasType>bigint(20)|0s</DasType>
       <Position>3</Position>
     </column>
     <column id="272" parent="237" name="goods_id">
+      <Comment>商品id</Comment>
       <DasType>bigint(20)|0s</DasType>
       <Position>4</Position>
     </column>

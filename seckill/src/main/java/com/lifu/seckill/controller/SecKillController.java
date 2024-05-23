@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+/**
+ *
+ */
 @Controller
 @RequestMapping("secKill")
 public class SecKillController {
@@ -51,7 +54,7 @@ public class SecKillController {
         SeckillOrder seckillOrder = seckillOrderService.getOne(seckillOrderQueryWrapper);
 
         if(seckillOrder != null){
-            model.addAttribute("errmsg" , RespBeanEnum.BUY_MORE_ERROR.getMessage());
+            model.addAttribute("errmsg" , RespBeanEnum.REPEATE_ERROR.getMessage());
             return "secKillFail";
         }
 

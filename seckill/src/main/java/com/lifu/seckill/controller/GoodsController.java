@@ -19,7 +19,7 @@ import org.thymeleaf.util.StringUtils;
 import java.util.Date;
 
 @Controller
-@RequestMapping("goods")
+@RequestMapping("/goods")
 public class GoodsController {
 
     @Autowired
@@ -28,18 +28,8 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
-    @RequestMapping("toList")
+    @RequestMapping("/toList")
     public String toList(User user , Model model){
-
-//        if(StringUtils.isEmpty(ticket)){
-//            return "login";
-//        }
-//
-//        //User user = (User) session.getAttribute(ticket);
-//        User user = userService.getUserByCookie(ticket, request, response);
-//        if(user == null){
-//            return "login";
-//        }
 
 
         model.addAttribute("user" , user);

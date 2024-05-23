@@ -17,7 +17,6 @@ public class WebConfig implements WebMvcConfigurer {
     private UserArgumentResolver userArgumentResolver;
 
     private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
-            "classpath:/resources/",
             "classpath:/static/" };
 
     //使参数解析器生效

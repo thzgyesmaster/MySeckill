@@ -5,26 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad4df60d-ea26-49ed-9bf4-7571d4550e8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/SecKillController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/seckill/src/main/resources/templates/orderDetail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/seckill/src/main/resources/templates/secKillFail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/utils/CreateUserUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/579a9387-8d40-4cff-85df-0252d9ce5385.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/579a9387-8d40-4cff-85df-0252d9ce5385.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/579a9387-8d40-4cff-85df-0252d9ce5385.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ac4855f-e802-434c-8960-ceed69823047.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/579a9387-8d40-4cff-85df-0252d9ce5385/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ac4855f-e802-434c-8960-ceed69823047/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/579a9387-8d40-4cff-85df-0252d9ce5385/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ac4855f-e802-434c-8960-ceed69823047/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/579a9387-8d40-4cff-85df-0252d9ce5385/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ac4855f-e802-434c-8960-ceed69823047/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/579a9387-8d40-4cff-85df-0252d9ce5385/storage_v2/_src_/schema/seckill.L2drdQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ac4855f-e802-434c-8960-ceed69823047/storage_v2/_src_/schema/seckill.L2drdQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/579a9387-8d40-4cff-85df-0252d9ce5385/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ac4855f-e802-434c-8960-ceed69823047/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/config/UserArgumentResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/config/UserArgumentResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/config/WebConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/GoodsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/mapper/SeckillGoodsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/mapper/SeckillGoodsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/SeckillGoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/SeckillGoodsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/SeckillGoodsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/SeckillGoodsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/SecKillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/SecKillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/exception/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/utils/CookieUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/utils/CookieUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/RespBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/RespBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/RespBeanEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/RespBeanEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/mapper/GoodsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/mapper/GoodsMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/mapper/SeckillGoodsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/mapper/SeckillGoodsMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/templates/goodsDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/templates/goodsDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,14 +51,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="/usr/local/maven/apache-maven-3.8.8" />
-        <option name="userSettingsFile" value="/usr/local/maven/apache-maven-3.8.8/conf/settings.xml" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
@@ -73,6 +69,13 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "HTTP 请求.generated-requests | #6.executor": "Run",
     "HTTP 请求.generated-requests中的所有.executor": "Run",
+    "Maven.seckill [clean].executor": "Run",
+    "Maven.seckill [compile].executor": "Run",
+    "Maven.seckill [install].executor": "Run",
+    "Maven.seckill [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.seckill [org.apache.maven.plugins:maven-install-plugin:3.1.1:install].executor": "Run",
+    "Maven.seckill [org.apache.maven.plugins:maven-jar-plugin:3.3.0:jar].executor": "Run",
+    "Maven.seckill [package].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -81,6 +84,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.SeckillApplication.executor": "Run",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
@@ -93,14 +97,15 @@
     "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "mybatisx.settings",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true",
+    "应用程序.CreateUserUtil.executor": "Run",
     "应用程序.MD5Util.executor": "Run"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
-      "mysql",
-      "redis"
+      "redis",
+      "mysql"
     ]
   }
 }]]></component>
@@ -109,17 +114,30 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/seckill/src/main/resources" />
       <recent name="$PROJECT_DIR$/seckill/src/main/resources/templates" />
+      <recent name="$PROJECT_DIR$/seckill/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill" />
       <recent name="$PROJECT_DIR$/seckill/src/main/resources/static/img" />
-      <recent name="$PROJECT_DIR$/seckill/src/main/resources/mapper" />
-      <recent name="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl" />
-      <recent name="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.lifu.seckill.mapper" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SeckillApplication">
+    <configuration name="CreateUserUtil" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lifu.seckill.utils.CreateUserUtil" />
+      <module name="seckill" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lifu.seckill.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MD5Util" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lifu.seckill.utils.MD5Util" />
       <module name="seckill" />
@@ -143,8 +161,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="HTTP 请求.generated-requests | #6" />
+      <item itemvalue="Spring Boot.SeckillApplication" />
+      <item itemvalue="应用程序.CreateUserUtil" />
+      <item itemvalue="应用程序.MD5Util" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.CreateUserUtil" />
         <item itemvalue="应用程序.MD5Util" />
         <item itemvalue="HTTP 请求.generated-requests | #6" />
       </list>
@@ -182,7 +207,15 @@
       <workItem from="1716189633720" duration="14702000" />
       <workItem from="1716269210462" duration="2121000" />
       <workItem from="1716273507403" duration="5701000" />
-      <workItem from="1716281180064" duration="1835000" />
+      <workItem from="1716281180064" duration="3979000" />
+      <workItem from="1716294177932" duration="3238000" />
+      <workItem from="1716334737058" duration="11146000" />
+      <workItem from="1716361752632" duration="4548000" />
+      <workItem from="1716366345638" duration="5946000" />
+      <workItem from="1716372524585" duration="265000" />
+      <workItem from="1716372914097" duration="149000" />
+      <workItem from="1716425868219" duration="6309000" />
+      <workItem from="1716436077663" duration="2788000" />
     </task>
     <servers />
   </component>
@@ -191,16 +224,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/UserServiceImpl.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
