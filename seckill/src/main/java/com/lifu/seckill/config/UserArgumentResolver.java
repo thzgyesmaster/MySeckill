@@ -31,15 +31,15 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
 
     @Override
     public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer modelAndViewContainer, NativeWebRequest nativeWebRequest, WebDataBinderFactory webDataBinderFactory) throws Exception {
-        HttpServletRequest reuqest = nativeWebRequest.getNativeRequest(HttpServletRequest.class);
+        HttpServletRequest request = nativeWebRequest.getNativeRequest(HttpServletRequest.class);
         HttpServletResponse response = nativeWebRequest.getNativeResponse(HttpServletResponse.class);
-        String ticket = CookieUtils.getCookieValue(reuqest, "userTicket");
+        String ticket = CookieUtils.getCookieValue(request, "userTicket");
 
         if (StringUtils.isEmpty(ticket)){
             return null;
         }
 
         // 返回user 对象
-        return userService.getUserByCookie(ticket,reuqest,response);
+        return userService.getUserByCookie(ticket,request,response);
     }
 }

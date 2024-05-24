@@ -16,9 +16,7 @@
       </schema-mapping>
     </data-source>
     <data-source name="0@192.168.1.217" uuid="7f7dbed0-b347-484a-8836-efdf723f8318">
-      <database-info product="" version="" jdbc-version="4.2" driver-name="Redis JDBC Driver" driver-version="1.5" dbms="UNKNOWN" exact-version="0" exact-driver-version="1.5">
-        <jdbc-catalog-is-schema>true</jdbc-catalog-is-schema>
-      </database-info>
+      <database-info product="" version="" jdbc-version="4.2" driver-name="Redis JDBC Driver" driver-version="1.5" dbms="UNKNOWN" exact-version="0" exact-driver-version="1.5" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <user-name>root</user-name>
       <schema-mapping />

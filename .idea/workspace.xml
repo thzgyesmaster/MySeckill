@@ -5,22 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad4df60d-ea26-49ed-9bf4-7571d4550e8c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/DetailVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/OrderDetailVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/resources/static/goodsDetail.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/resources/static/orderDetail.htm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/config/UserArgumentResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/config/UserArgumentResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/config/WebConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/GoodsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/SecKillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/SecKillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/utils/CookieUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/utils/CookieUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/utils/CreateUserUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/utils/CreateUserUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/validator/IsMobile.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/validator/IsMobile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/IsMobileValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/IsMobileValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/LoginVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/LoginVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/RespBeanEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/RespBeanEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/templates/goodsList.html" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/templates/goodsList.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,9 +107,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/seckill/src/main/resources/static" />
       <recent name="$PROJECT_DIR$/seckill/src/main/resources" />
       <recent name="$PROJECT_DIR$/seckill/src/main/resources/templates" />
-      <recent name="$PROJECT_DIR$/seckill/src/main/resources/static" />
       <recent name="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill" />
       <recent name="$PROJECT_DIR$/seckill/src/main/resources/static/img" />
     </key>
@@ -211,7 +212,11 @@
       <workItem from="1716439143501" duration="65000" />
       <workItem from="1716446202306" duration="4244000" />
       <workItem from="1716451451847" duration="7545000" />
-      <workItem from="1716466019384" duration="8082000" />
+      <workItem from="1716466019384" duration="8809000" />
+      <workItem from="1716517549649" duration="8924000" />
+      <workItem from="1716532176943" duration="1069000" />
+      <workItem from="1716538529252" duration="3008000" />
+      <workItem from="1716550062346" duration="2277000" />
     </task>
     <servers />
   </component>

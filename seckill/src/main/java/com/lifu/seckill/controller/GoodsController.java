@@ -3,9 +3,11 @@ package com.lifu.seckill.controller;
 import com.lifu.seckill.pojo.User;
 import com.lifu.seckill.service.GoodsService;
 import com.lifu.seckill.service.UserService;
+import com.lifu.seckill.vo.DetailVo;
 import com.lifu.seckill.vo.GoodsVo;
 
 
+import com.lifu.seckill.vo.RespBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -63,8 +65,6 @@ public class GoodsController {
             redisTemplate.opsForValue().set("goodsList",html,60, TimeUnit.SECONDS); //要设置页面的失效时间
         }
 
-
-
 //        return "goodsList";
         return html;
     }
@@ -74,49 +74,78 @@ public class GoodsController {
      * @param goodsId
      * @return
      */
-    @RequestMapping(value = "toDetail/{goodsId}" , produces = "text/html;charset=utf-8")
+    @RequestMapping( "/detail/{goodsId}")
     @ResponseBody
-    public String toDetail(@PathVariable Long goodsId , Model model , User user , HttpServletRequest request , HttpServletResponse response){
-        ValueOperations valueOperations = redisTemplate.opsForValue();
-        //Redis中获取页面，如果不为空，直接返回页面
-        String html = (String) valueOperations.get("goodsDetail:" + goodsId);
-        if (!StringUtils.isEmpty(html)){
-            return html;
-        }
+    public RespBean detail(@PathVariable Long goodsId , User user){
 
-        model.addAttribute("user",user);
         GoodsVo goodsVo = goodsService.findGoodsVoByGoodsId(goodsId);
         Date startDate = goodsVo.getStartDate();
         Date endDate = goodsVo.getEndDate();
-        Date nowDate = new Date();
-        //秒杀状态
-        int seckillStatus = 0;
-        //秒杀倒计时
+        Date nowdate = new Date();
+        int secKillStatus = 0;
         int remainSeconds = 0;
-        //秒杀还未开始
-        if (nowDate.before(startDate)){
-            //seckillStatus还是0 不处理seckillStatus
-            remainSeconds = (int)((startDate.getTime()-nowDate.getTime())/1000);
-
-        }else if (nowDate.after(endDate)){
-            //秒杀结束
-            seckillStatus = 2;
-            remainSeconds  = -1;
+        if(nowdate.before(startDate)){
+            remainSeconds = ((int)((startDate.getTime()-nowdate.getTime())/1000));
+        }else if(nowdate.after(endDate)){
+            secKillStatus = 2;
+            remainSeconds = -1;
         }else {
-            //秒杀进行中
-            seckillStatus = 1;
+            secKillStatus = 1;
             remainSeconds = 0;
         }
-        model.addAttribute("remainSeconds",remainSeconds);
-        model.addAttribute("seckillStatus",seckillStatus);
-        model.addAttribute("goods",goodsVo);
-
-        WebContext context = new WebContext(request,response,request.getServletContext(),request.getLocale(),model.asMap());
-        html = thymeleafViewResolver.getTemplateEngine().process("goodsDetail", context);
-        if (!StringUtils.isEmpty(html)){
-            valueOperations.set("goodsDetail" + goodsId,html,60,TimeUnit.SECONDS);
-        }
-        return html;
-        //  return "goodsDetail";
+        DetailVo detailVo = new DetailVo();
+        detailVo.setUser(user);
+        detailVo.setGoodsVo(goodsVo);
+        detailVo.setSeckillStatus(secKillStatus);
+        detailVo.setRemainSeconds(remainSeconds);
+        return RespBean.success(detailVo);
     }
+
+//    @RequestMapping(value = "toDetail/{goodsId}" , produces = "text/html;charset=utf-8")
+//    @ResponseBody
+//    public String toDetail(@PathVariable Long goodsId , Model model , User user , HttpServletRequest request , HttpServletResponse response){
+//        ValueOperations valueOperations = redisTemplate.opsForValue();
+//        //Redis中获取页面，如果不为空，直接返回页面
+//        String html = (String) valueOperations.get("goodsDetail:" + goodsId);
+//        if (!StringUtils.isEmpty(html)){
+//            return html;
+//        }
+//
+//        model.addAttribute("user",user);
+//        GoodsVo goodsVo = goodsService.findGoodsVoByGoodsId(goodsId);
+//
+//        //前端计时器参数设置
+//        Date startDate = goodsVo.getStartDate();
+//        Date endDate = goodsVo.getEndDate();
+//        Date nowDate = new Date();
+//        //秒杀状态
+//        int seckillStatus = 0;
+//        //秒杀倒计时
+//        int remainSeconds = 0;
+//        //秒杀还未开始
+//        if (nowDate.before(startDate)){
+//            //seckillStatus还是0 不处理seckillStatus
+//            remainSeconds = (int)((startDate.getTime()-nowDate.getTime())/1000);
+//
+//        }else if (nowDate.after(endDate)){
+//            //秒杀结束
+//            seckillStatus = 2;
+//            remainSeconds  = -1;
+//        }else {
+//            //秒杀进行中
+//            seckillStatus = 1;
+//            remainSeconds = 0;
+//        }
+//        model.addAttribute("remainSeconds",remainSeconds);
+//        model.addAttribute("seckillStatus",seckillStatus);
+//        model.addAttribute("goods",goodsVo);
+//
+//        WebContext context = new WebContext(request,response,request.getServletContext(),request.getLocale(),model.asMap());
+//        html = thymeleafViewResolver.getTemplateEngine().process("goodsDetail", context); // html , context
+//        if (!StringUtils.isEmpty(html)){
+//            valueOperations.set("goodsDetail" + goodsId,html,60,TimeUnit.SECONDS);
+//        }
+//        return html;
+//        //  return "goodsDetail";
+//    }
 }

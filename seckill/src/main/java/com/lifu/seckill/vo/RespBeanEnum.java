@@ -33,9 +33,7 @@ public enum RespBeanEnum {
     REQUEST_ILLEGAL(500502,"请求非法，请重新尝试"),
 
     //订单模块5003xx
-    ORDER_NOT_EXIST(500300,"订单信息不存在"),
-
-    ;
+    ORDER_NOT_EXIST(500300,"订单信息不存在");
 
     private final Integer code;
 
