@@ -12,6 +12,7 @@ import com.lifu.seckill.vo.GoodsVo;
 import com.lifu.seckill.vo.RespBean;
 import com.lifu.seckill.vo.RespBeanEnum;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,9 +39,12 @@ public class SecKillController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     @PostMapping("/doSecKill")
     @ResponseBody
-    public RespBean doSecKill(Model model , User user , Long goodsId){
+    public RespBean doSecKill(User user , Long goodsId){
         if(user == null){
             return RespBean.error(SESSION_ERROR);
         }
@@ -49,18 +53,19 @@ public class SecKillController {
         GoodsVo goodsVo = seckillGoodsService.findGoodsVoBySeckillGoodsId(goodsId);
 
         if (goodsVo.getGoodsStock() < 1) {
-            model.addAttribute("errmsg" , RespBeanEnum.EMPTY_STOCK.getMessage());
+//            model.addAttribute("errmsg" , RespBeanEnum.EMPTY_STOCK.getMessage());
             //转跳秒杀失败页面
             return RespBean.error(RespBeanEnum.EMPTY_STOCK);
         }
 
         //判断用户是否重复抢购
         Long userId = user.getId();
-        QueryWrapper<SeckillOrder> seckillOrderQueryWrapper = new QueryWrapper<SeckillOrder>().eq("user_id", userId).eq("goods_id", goodsId);
-        SeckillOrder seckillOrder = seckillOrderService.getOne(seckillOrderQueryWrapper);
+//        QueryWrapper<SeckillOrder> seckillOrderQueryWrapper = new QueryWrapper<SeckillOrder>().eq("user_id", userId).eq("goods_id", goodsId);
+//        SeckillOrder seckillOrder = seckillOrderService.getOne(seckillOrderQueryWrapper);
+        SeckillOrder seckillOrder = (SeckillOrder)redisTemplate.opsForValue().get("order:" + userId + goodsId);
 
         if(seckillOrder != null){
-            model.addAttribute("errmsg" , RespBeanEnum.REPEATE_ERROR.getMessage());
+//            model.addAttribute("errmsg" , RespBeanEnum.REPEATE_ERROR.getMessage());
             return RespBean.error(RespBeanEnum.REPEATE_ERROR);
         }
 
