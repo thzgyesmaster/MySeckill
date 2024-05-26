@@ -21,10 +21,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -72,14 +69,19 @@ public class SecKillController implements InitializingBean {
         });
     }
 
-    @PostMapping("/doSecKill")
+    @PostMapping(value = "/{path}/doSecKill")
     @ResponseBody
-    public RespBean doSecKill(User user , Long goodsId){
+    public RespBean doSecKill(@PathVariable String path , User user , Long goodsId){
         if(user == null){
             return RespBean.error(SESSION_ERROR);
         }
         ValueOperations valueOperations = redisTemplate.opsForValue();
 
+        //第三次优化
+        boolean check = orderService.checkPath(user,goodsId,path);
+        if(!check){
+            return RespBean.error(RespBeanEnum.REQUEST_ILLEGAL);
+        }
         //第二次优化
 
         //防止一个用户超买
@@ -161,4 +163,15 @@ public class SecKillController implements InitializingBean {
         return RespBean.success(orderId);
     }
 
+
+    @GetMapping("path")
+    @ResponseBody
+    public RespBean getPath(User user , Long goodsId){
+        if(user == null){
+            return RespBean.error(SESSION_ERROR);
+        }
+
+        String str = orderService.createPath(user,goodsId);
+        return RespBean.success(str);
+    }
 }

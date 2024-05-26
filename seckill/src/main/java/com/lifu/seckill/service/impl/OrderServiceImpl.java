@@ -13,17 +13,22 @@ import com.lifu.seckill.service.GoodsService;
 import com.lifu.seckill.service.OrderService;
 import com.lifu.seckill.service.SeckillGoodsService;
 import com.lifu.seckill.service.SeckillOrderService;
+import com.lifu.seckill.utils.MD5Util;
+import com.lifu.seckill.utils.UUIDUtil;
 import com.lifu.seckill.vo.GoodsVo;
 import com.lifu.seckill.vo.OrderDetailVo;
+import com.lifu.seckill.vo.RespBean;
 import com.lifu.seckill.vo.RespBeanEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -113,5 +118,37 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         detail.setGoodsVo(goodsVo);
 
         return detail;
+    }
+
+    /**
+     * 获取秒杀地址
+     * @param user
+     * @param goodsId
+     * @return
+     */
+    @Override
+    public String createPath(User user, Long goodsId) {
+        String str = MD5Util.md5(UUIDUtil.uuid() + "lifu");
+        redisTemplate.opsForValue().
+                set("seckillPath:" + user.getId() + ":" + goodsId,str,60, TimeUnit.SECONDS);
+        return str;
+    }
+
+    /**
+     * 校验秒杀地址
+     * @param user
+     * @param goodsId
+     * @return
+     */
+    @Override
+    public boolean checkPath(User user, Long goodsId , String path) {
+        if(user == null || goodsId<0 || StringUtils.isEmpty(path)){
+            return false;
+        }
+
+        String redisPath = (String) redisTemplate.opsForValue().
+                get("seckillPath:" + user.getId() + ":" + goodsId);
+
+        return path.equals(redisPath);
     }
 }

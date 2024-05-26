@@ -42,10 +42,13 @@
                 <span th:if="${secKillStatus eq 2}">秒杀已结束:</span>
             </td>
             <td>
-                <form id="secKillForm" method="post" action="/secKill/doSecKill">
-                    <input type="hidden" name="goodsId" th:value="${goods.id}">
-                    <button class="btn btn-primary btn-block" type="submit" id="buyButton">立即秒杀,兄弟萌给我冲冲冲</button>
-                </form>
+<!--                <form id="secKillForm" method="post" action="/secKill/doSecKill">-->
+<!--                    <input type="hidden" name="goodsId" th:value="${goods.id}">-->
+<!--                    <button class="btn btn-primary btn-block" type="submit" id="buyButton">立即秒杀,兄弟萌给我冲冲冲</button>-->
+<!--                </form>-->
+                <button class="btn btn-primary btn-block" type="button" id="buyButton" onclick="getSeckillPath()">立即秒杀,兄弟萌给我冲冲冲
+                    <input type="hidden" name="goodsId" id="goodsIs">
+                </button>
             </td>
         </tr>
         <tr>

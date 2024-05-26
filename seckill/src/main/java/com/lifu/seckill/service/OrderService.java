@@ -15,7 +15,28 @@ import com.lifu.seckill.vo.OrderDetailVo;
  * @since 2024-05-20
  */
 public interface OrderService extends IService<Order> {
+    /**
+     * 秒杀并产生订单
+     * @param user
+     * @param goodsVo
+     * @return
+     */
     Order seckill(User user , GoodsVo goodsVo);
 
+    /**
+     * 订单详情
+     * @param orderId
+     * @return
+     */
     OrderDetailVo detail(Long orderId);
+
+    /**
+     * 获取秒杀地址
+     * @param user
+     * @param goodsId
+     * @return
+     */
+    String createPath(User user, Long goodsId);
+
+    boolean checkPath(User user, Long goodsId , String path);
 }
