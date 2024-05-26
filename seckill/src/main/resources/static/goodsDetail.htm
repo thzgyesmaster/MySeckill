@@ -139,8 +139,8 @@
             },
             success: function (data) {
                 if (data.code == 200) {
-                    window.location.href = "/orderDetail.htm?orderId=" +data.obj.id;
-                    // getResult($("#goodsId").val());
+                    // window.location.href = "/orderDetail.htm?orderId=" +data.obj.id;
+                    getResult($("#goodsId").val());
                 } else {
                     layer.msg(data.message);
                 }
@@ -152,9 +152,9 @@
     }
 
     function getResult(goodsId) {
-        g_showLoading();
+        g_showLoading(); //加载条
         $.ajax({
-            url: "/seckill/result",
+            url: "/secKill/result",
             type: "GET",
             data: {
                 goodsId: goodsId,
@@ -171,8 +171,7 @@
                     } else {
                         layer.confirm("恭喜你，秒杀成功！查看订单？", {btn: ["确定", "取消"]},
                             function () {
-                                window.location.href = "/orderDetail.htm?orderId=" +
-                                    result;
+                                window.location.href = "/orderDetail.htm?orderId=" + result;
                             },
                             function () {
                                 layer.close();

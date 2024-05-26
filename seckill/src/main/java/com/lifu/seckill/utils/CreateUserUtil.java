@@ -18,7 +18,7 @@ public class CreateUserUtil {
 
     public static  void createUser(int count) throws Exception {
         List<User> users = new ArrayList<>(count);
-//        生成用户
+        //生成用户
         for (int i = 0; i < count; i++) {
             User user = new User();
             user.setId(13000000000L + i);
