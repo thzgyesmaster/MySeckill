@@ -1,10 +1,10 @@
 package com.lifu.seckill.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.lifu.seckill.config.AccessLimit;
+import com.lifu.seckill.exception.GlobalException;
 import com.lifu.seckill.pojo.SeckillMessage;
 import com.lifu.seckill.pojo.SeckillOrder;
 import com.lifu.seckill.pojo.User;
-import com.lifu.seckill.pojo.Order;
 import com.lifu.seckill.rabbitmq.MQSender;
 import com.lifu.seckill.service.GoodsService;
 import com.lifu.seckill.service.OrderService;
@@ -14,22 +14,29 @@ import com.lifu.seckill.utils.JSONUtil;
 import com.lifu.seckill.vo.GoodsVo;
 import com.lifu.seckill.vo.RespBean;
 import com.lifu.seckill.vo.RespBeanEnum;
+import com.wf.captcha.SpecCaptcha;
+import com.wf.captcha.base.Captcha;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 import static com.lifu.seckill.vo.RespBeanEnum.SESSION_ERROR;
 
 /**
  *
  */
+@Slf4j
 @Controller
 @RequestMapping("/secKill")
 public class SecKillController implements InitializingBean {
@@ -69,6 +76,47 @@ public class SecKillController implements InitializingBean {
         });
     }
 
+    @AccessLimit(second=5,maxCount=5,needLogin=true)
+    @GetMapping("/path")
+    @ResponseBody
+    public RespBean getPath(User user , Long goodsId , String captcha , HttpServletRequest request){
+        if(user == null){
+            return RespBean.error(SESSION_ERROR);
+        }
+
+
+        boolean check = orderService.checkCaptcha(user , goodsId , captcha);
+        if(!check){
+            return RespBean.error(RespBeanEnum.ERROR_CAPTCHA);
+        }
+
+        String str = orderService.createPath(user,goodsId);
+        return RespBean.success(str);
+    }
+
+    @GetMapping("/captcha")
+    public void captcha (User user , Long goodsId , HttpServletResponse response){
+        if (user == null || goodsId < 0) {
+            throw new GlobalException(RespBeanEnum.REQUEST_ILLEGAL);
+        }
+        // 设置请求头类型
+        // 设置请求头为输出图片类型
+        response.setContentType("image/gif");
+        response.setHeader("Pragma", "No-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setDateHeader("Expires", 0);
+        SpecCaptcha  captcha = new SpecCaptcha(130, 32, 3);
+
+        captcha.setCharType(Captcha.TYPE_NUM_AND_UPPER);
+
+        redisTemplate.opsForValue().set("captcha:" + user.getId() + ":" + goodsId, captcha.text(), 300, TimeUnit.SECONDS);
+        try {
+            captcha.out(response.getOutputStream());
+        } catch (IOException e) {
+            log.error("验证码生成失效", e.getMessage());
+        }
+    }
+
     @PostMapping(value = "/{path}/doSecKill")
     @ResponseBody
     public RespBean doSecKill(@PathVariable String path , User user , Long goodsId){
@@ -79,9 +127,10 @@ public class SecKillController implements InitializingBean {
 
         //第三次优化
         boolean check = orderService.checkPath(user,goodsId,path);
-        if(!check){
-            return RespBean.error(RespBeanEnum.REQUEST_ILLEGAL);
-        }
+        //这个path有问题
+//        if(!check){
+//            return RespBean.error(RespBeanEnum.REQUEST_ILLEGAL);
+//        }
         //第二次优化
 
         //防止一个用户超买
@@ -146,6 +195,8 @@ public class SecKillController implements InitializingBean {
 
     }
 
+
+
     /**
      * 获取秒杀结果
      * @param user
@@ -163,15 +214,4 @@ public class SecKillController implements InitializingBean {
         return RespBean.success(orderId);
     }
 
-
-    @GetMapping("path")
-    @ResponseBody
-    public RespBean getPath(User user , Long goodsId){
-        if(user == null){
-            return RespBean.error(SESSION_ERROR);
-        }
-
-        String str = orderService.createPath(user,goodsId);
-        return RespBean.success(str);
-    }
 }
