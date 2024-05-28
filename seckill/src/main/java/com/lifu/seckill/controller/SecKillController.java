@@ -76,6 +76,29 @@ public class SecKillController implements InitializingBean {
         });
     }
 
+    @GetMapping("/captcha")
+    public void captcha (User user , Long goodsId , HttpServletResponse response){
+        if (user == null || goodsId < 0) {
+            throw new GlobalException(RespBeanEnum.REQUEST_ILLEGAL);
+        }
+        // 设置请求头类型
+        // 设置请求头为输出图片类型
+        response.setContentType("image/gif");
+        response.setHeader("Pragma", "No-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setDateHeader("Expires", 0);
+        SpecCaptcha  captcha = new SpecCaptcha(130, 32, 3);
+
+        captcha.setCharType(Captcha.TYPE_NUM_AND_UPPER); //数字加字母
+
+        redisTemplate.opsForValue().set("captcha:" + user.getId() + ":" + goodsId, captcha.text(), 300, TimeUnit.SECONDS);
+        try {
+            captcha.out(response.getOutputStream());
+        } catch (IOException e) {
+            log.error("验证码生成失效", e.getMessage());
+        }
+    }
+
     @AccessLimit(second=5,maxCount=5,needLogin=true)
     @GetMapping("/path")
     @ResponseBody
@@ -94,28 +117,7 @@ public class SecKillController implements InitializingBean {
         return RespBean.success(str);
     }
 
-    @GetMapping("/captcha")
-    public void captcha (User user , Long goodsId , HttpServletResponse response){
-        if (user == null || goodsId < 0) {
-            throw new GlobalException(RespBeanEnum.REQUEST_ILLEGAL);
-        }
-        // 设置请求头类型
-        // 设置请求头为输出图片类型
-        response.setContentType("image/gif");
-        response.setHeader("Pragma", "No-cache");
-        response.setHeader("Cache-Control", "no-cache");
-        response.setDateHeader("Expires", 0);
-        SpecCaptcha  captcha = new SpecCaptcha(130, 32, 3);
 
-        captcha.setCharType(Captcha.TYPE_NUM_AND_UPPER);
-
-        redisTemplate.opsForValue().set("captcha:" + user.getId() + ":" + goodsId, captcha.text(), 300, TimeUnit.SECONDS);
-        try {
-            captcha.out(response.getOutputStream());
-        } catch (IOException e) {
-            log.error("验证码生成失效", e.getMessage());
-        }
-    }
 
     @PostMapping(value = "/{path}/doSecKill")
     @ResponseBody
