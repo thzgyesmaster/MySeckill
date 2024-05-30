@@ -19,6 +19,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public interface UserService extends IService<User> {
 
+    /**
+     * 登录校验
+     * @param loginVo
+     * @param response
+     * @param request
+     * @return
+     */
     RespBean doLogin(LoginVo loginVo, HttpServletResponse response, HttpServletRequest request);
 
     /**

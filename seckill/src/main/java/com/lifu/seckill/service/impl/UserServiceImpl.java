@@ -71,7 +71,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         //将 用户名+cookie:用户信息 存入redis中
         redisTemplate.opsForValue().set("user:" + ticket, user);
 
-        CookieUtils.setCookie(request,response,"userTicket",ticket);
+        CookieUtils.setCookie(request,response,"userTicket",ticket); //设置cookie的值,并在response中返回cookie
 
         return RespBean.success(ticket);
     }

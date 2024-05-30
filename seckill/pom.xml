@@ -87,6 +87,7 @@
 			<version>1.2.38</version>
 		</dependency>
 
+		<!-- 验证码 -->
 		<dependency>
 			<groupId>com.github.whvcse</groupId>
 			<artifactId>easy-captcha</artifactId>

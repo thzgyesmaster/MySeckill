@@ -62,8 +62,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         QueryWrapper<SeckillGoods> queryWrapper = new QueryWrapper<SeckillGoods>().eq("goods_id", goodsVo.getId());
         SeckillGoods seckillGoods = seckillGoodsService.getOne(queryWrapper);
 
-        //使秒杀商品库存数量减一
+        //真正使秒杀商品库存数量减一
         seckillGoods.setStockCount(seckillGoods.getStockCount() - 1);
+
         boolean result = seckillGoodsService.update(new UpdateWrapper<SeckillGoods>().setSql("stock_count = "+"stock_count-1").eq("goods_id", goodsVo.getId()).gt("stock_count", 0));
 
 
@@ -150,5 +151,16 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
                 get("seckillPath:" + user.getId() + ":" + goodsId);
 
         return path.equals(redisPath);
+    }
+
+    @Override
+    public boolean checkCaptcha(User user, Long goodsId, String captcha) {
+        if(StringUtils.isEmpty(captcha) || StringUtils.isEmpty(user)){
+            return false;
+        }
+
+        String redisCaptcha = (String)redisTemplate.opsForValue().get("captcha:" + user.getId() + ":" + goodsId);
+        return captcha.equals(redisCaptcha);
+
     }
 }

@@ -1,5 +1,6 @@
 package com.lifu.seckill.controller;
 
+import com.lifu.seckill.config.AccessLimit;
 import com.lifu.seckill.pojo.User;
 import com.lifu.seckill.service.GoodsService;
 import com.lifu.seckill.service.UserService;
@@ -41,6 +42,7 @@ public class GoodsController {
     @Autowired
     private ThymeleafViewResolver thymeleafViewResolver;
 
+    @AccessLimit(second=5,maxCount=5,needLogin=true)
     @RequestMapping(value = "/toList", produces = "text/html;charset=utf-8" )
     @ResponseBody
     public String toList(User user , Model model , HttpServletRequest request , HttpServletResponse response) {

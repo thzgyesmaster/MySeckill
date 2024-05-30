@@ -154,7 +154,7 @@
         else if (remainSeconds == 0) {
             $("#buyButton").attr("disabled", false);
             if (timeout) {
-                clearTimeout(timeout);
+                clearTimeout(timeout); //清空倒计时
             }
             $("#seckillTip").html("秒杀进行中");
             refreshCaptcha(); //进入就刷新验证码
@@ -197,7 +197,7 @@
         })
     }
 
-
+    //以上是页面初始化
 
     function doSeckill(path) {
         $.ajax({
@@ -235,7 +235,7 @@
                         layer.msg("对不起，秒杀失败！");
                     } else if (result == 0) {
                         setTimeout(function () {
-                            getResult(goodsId);
+                            getResult(goodsId); //每50ms再去请求一次
                         }, 50);
                     } else {
                         layer.confirm("恭喜你，秒杀成功！查看订单？", {btn: ["确定", "取消"]},
