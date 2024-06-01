@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad4df60d-ea26-49ed-9bf4-7571d4550e8c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/GoodsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/static/goodsDetail.htm" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/static/goodsDetail.htm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,6 +229,10 @@
       <workItem from="1716816951863" duration="692000" />
       <workItem from="1716820200626" duration="970000" />
       <workItem from="1716895270418" duration="735000" />
+      <workItem from="1717054758936" duration="731000" />
+      <workItem from="1717074033761" duration="1850000" />
+      <workItem from="1717124817407" duration="628000" />
+      <workItem from="1717139976368" duration="101000" />
     </task>
     <servers />
   </component>

@@ -76,6 +76,7 @@ public class SecKillController implements InitializingBean {
         });
     }
 
+    @AccessLimit(second=5,maxCount=5,needLogin=true)
     @GetMapping("/captcha")
     public void captcha (User user , Long goodsId , HttpServletResponse response){
         if (user == null || goodsId < 0) {
