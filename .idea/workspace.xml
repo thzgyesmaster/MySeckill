@@ -5,7 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad4df60d-ea26-49ed-9bf4-7571d4550e8c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/pojo/Register.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/resources/static/img/1+ace.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/resources/static/img/HUAWEIPura70.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/resources/static/img/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/resources/static/img/redminote13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/resources/static/img/杂牌手机.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/resources/static/img/飞天女警适用三星.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seckill/src/main/resources/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/LoginVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/LoginVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/RespBeanEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill/vo/RespBeanEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/lock.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/static/goodsDetail.htm" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/static/goodsDetail.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/static/orderDetail.htm" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/static/orderDetail.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/templates/goodsDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/templates/goodsDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/templates/goodsList.html" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/templates/goodsList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seckill/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/seckill/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +103,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/lifu/idea/algorithm&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/lifu/idea/CRM&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -88,7 +112,7 @@
     &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
     &quot;应用程序.CreateUserUtil.executor&quot;: &quot;Run&quot;,
     &quot;应用程序.MD5Util.executor&quot;: &quot;Run&quot;
@@ -108,11 +132,11 @@
       <recent name="com.lifu.seckill.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/seckill/src/main/resources/static/img" />
       <recent name="$PROJECT_DIR$/seckill/src/main/resources/static" />
       <recent name="$PROJECT_DIR$/seckill/src/main/resources" />
       <recent name="$PROJECT_DIR$/seckill/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/seckill/src/main/java/com/lifu/seckill" />
-      <recent name="$PROJECT_DIR$/seckill/src/main/resources/static/img" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.lifu.seckill.utils" />
@@ -233,6 +257,23 @@
       <workItem from="1717074033761" duration="1850000" />
       <workItem from="1717124817407" duration="628000" />
       <workItem from="1717139976368" duration="101000" />
+      <workItem from="1717241053466" duration="787000" />
+      <workItem from="1717554633710" duration="8000" />
+      <workItem from="1717576058675" duration="253000" />
+      <workItem from="1717670633037" duration="16000" />
+      <workItem from="1718257923860" duration="3216000" />
+      <workItem from="1718541790912" duration="118000" />
+      <workItem from="1724737884207" duration="1168000" />
+      <workItem from="1724739112640" duration="3669000" />
+      <workItem from="1725352317979" duration="10749000" />
+      <workItem from="1725435369159" duration="7103000" />
+      <workItem from="1725443965616" duration="5755000" />
+      <workItem from="1725497469907" duration="14942000" />
+      <workItem from="1725514348371" duration="782000" />
+      <workItem from="1725515779949" duration="4894000" />
+      <workItem from="1725596440956" duration="1636000" />
+      <workItem from="1725601410312" duration="676000" />
+      <workItem from="1725606857526" duration="2225000" />
     </task>
     <servers />
   </component>

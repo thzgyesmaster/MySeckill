@@ -24,6 +24,7 @@ public enum RespBeanEnum {
     MOBILE_NOT_EXIST(500213,"手机号码不存在"),
     PASSWORD_UPDATE_FAIL(500214,"更新密码失败"),
     SESSION_ERROR(500215,"用户不存在"),
+    MOBILE_EXIST(500216,"手机号已存在"),
 
 
 

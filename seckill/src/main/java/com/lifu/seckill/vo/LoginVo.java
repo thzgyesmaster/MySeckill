@@ -15,4 +15,7 @@ public class LoginVo {
     @NotNull
     @Length(min = 32)
     private String password;
+
+    private String slat;
+    private int login_count;
 }

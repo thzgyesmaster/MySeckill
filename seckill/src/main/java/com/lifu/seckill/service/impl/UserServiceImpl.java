@@ -3,6 +3,7 @@ package com.lifu.seckill.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lifu.seckill.exception.GlobalException;
 import com.lifu.seckill.mapper.UserMapper;
+import com.lifu.seckill.pojo.Register;
 import com.lifu.seckill.pojo.User;
 import com.lifu.seckill.service.UserService;
 import com.lifu.seckill.utils.CookieUtils;
@@ -18,6 +19,8 @@ import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * <p>
@@ -107,4 +110,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return RespBean.error(RespBeanEnum.PASSWORD_UPDATE_FAIL);
     }
 
+    @Override
+    public RespBean doRegister(LoginVo loginVo, HttpServletRequest request , HttpServletResponse response) {
+
+            return RespBean.success();
+
+    }
 }

@@ -19,4 +19,8 @@
         id, nickname, password, slat, head, register_date, last_login_date, login_count
     </sql>
 
+    <insert id="insertUser" parameterType="Register">
+        insert into t_user (id, password, slat, login_count,nickname)
+        values (#{register.mobile}, #{register.password}, #{register.slat}, #{register.loginCount},#{register.nickname})
+    </insert>
 </mapper>

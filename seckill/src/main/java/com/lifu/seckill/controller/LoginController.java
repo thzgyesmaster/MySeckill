@@ -45,6 +45,18 @@ public class LoginController {
         return userService.doLogin(loginVo,response,request);
     }
 
+    @RequestMapping("/toRegister")
+    public String register(){
+        System.out.println("进入后端注册界面");
+        return "register";
+    }
+
+    @RequestMapping("/doRegister")
+    @ResponseBody
+    public RespBean doRegister(@Valid LoginVo loginVo, HttpServletRequest request , HttpServletResponse response){
+        System.out.println("开始注册！");
+        return  userService.doRegister(loginVo,request,response);
+    }
 
 }
 

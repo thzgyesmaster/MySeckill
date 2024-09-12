@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>商品列表</title>
+
     <!-- jquery -->
     <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
     <!-- bootstrap -->
@@ -13,17 +14,113 @@
     <script type="text/javascript" th:src="@{/layer/layer.js}"></script>
     <!-- common.js -->
     <script type="text/javascript" th:src="@{/js/common.js}"></script>
+
+    <style>
+        body {
+            background-image: url('/img/login.png'); /* 替换为您的背景图片路径 */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .navbar {
+            background-color: #343a40; /* 导航条背景色 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            margin-right: 10px;
+        }
+
+        .panel.panel-default {
+            background-color: rgba(255, 255, 255, 0.7); /* 背景颜色透明度 */
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel-heading {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+
+
+        .highlight {
+            background-color: lightskyblue;
+        }
+
+        /* Add styles for the search box */
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+
+
+
+<nav class="navbar">
+    <a href="/login/toLogin">返回登录页面</a>
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="搜索商品名称">
+        <button onclick="searchGoods()" class="search-button">搜索</button>
+    </div>
+    <ul>
+        <li th:each="goods, goodsStat : ${goodsList}">
+            <a th:href="'/goodsDetail.htm?goodsId=' + ${goods.id}"
+               th:text="${goods.goodsName}"
+               th:attr="data-stock-count=${goods.stockCount}"
+               onclick="handleClick(event)"></a>
+        </li>
+    </ul>
+</nav>
+
+
 <div class="panel panel-default">
-    <div class="panel-heading">秒杀商品列表</div>
+
     <table class="table" id="goodslist">
         <tr>
             <td>商品名称</td>
             <td>商品图片</td>
             <td>商品原价</td>
             <td>秒杀价</td>
-            <td>库存数量</td>
+            <td>秒杀库存数量</td>
             <td>详情</td>
         </tr>
         <tr th:each="goods,goodsStat : ${goodsList}">
@@ -32,9 +129,56 @@
             <td th:text="${goods.goodsPrice}"></td>
             <td th:text="${goods.seckillPrice}"></td>
             <td th:text="${goods.stockCount}"></td>
-            <td><a th:href="'/goodsDetail.htm?goodsId='+${goods.id}">详情</a></td>
+            <td th:if="${goods.stockCount > 0}">
+                <a th:href="'/goodsDetail.htm?goodsId='+${goods.id}">点击进入详情</a>
+            </td>
+            <td th:unless="${goods.stockCount > 0}">
+                <!-- 商品数量为0时的提示信息 -->
+                <span>商品已售罄</span>
+            </td>
         </tr>
     </table>
+
+    <script>
+        var highlightedRow = null; // Track the currently highlighted row
+
+        function searchGoods() {
+            var inputText = document.getElementById('searchInput').value.trim().toLowerCase();
+            var rows = document.getElementById('goodslist').getElementsByTagName('tr');
+
+            // Remove previous highlight
+            if (highlightedRow) {
+                var cells = highlightedRow.getElementsByTagName('td');
+                cells[0].innerHTML = cells[0].textContent;
+                highlightedRow.classList.remove('highlight');
+            }
+
+            for (var i = 1; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName('td');
+                var productName = cells[0].textContent.trim().toLowerCase(); // Assuming product name is in the first column
+
+                if (productName.includes(inputText)) {
+                    rows[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    cells[0].innerHTML = cells[0].innerHTML.replace(new RegExp(inputText, 'gi'), match => `<span class="highlight">${match}</span>`);
+                    rows[i].classList.add('highlight');
+                    highlightedRow = rows[i];
+                    break; // Stop after the first match
+                }
+            }
+        }
+
+        function handleClick(event) {
+            var stockCount = event.target.getAttribute('data-stock-count');
+
+            if (stockCount === '0') {
+                event.preventDefault();
+                event.stopPropagation();
+                alert('商品已售罄');
+            }
+        }
+
+    </script>
+
 </div>
 </body>
 </html>

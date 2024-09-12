@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>注册</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f1f1f1;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                background-image: url('/img/login.png');
+                background-size: cover;
+                background-position: center;
+            }
+            .container {
+                width: 50%;
+                margin: 50px auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+                color: #333;
+            }
+            label {
+                display: block;
+                margin-top: 10px;
+                color: #666;
+            }
+            input {
+                width: 100%;
+                padding: 8px;
+                margin-top: 5px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            button {
+                padding: 8px 20px;
+                margin-top: 10px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+        <!-- jquery -->
+        <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+        <!-- bootstrap -->
+        <link rel="stylesheet" type="text/css"
+              th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+        <script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}">
+        </script>
+        <!-- jquery-validator 做校验的-->
+        <script type="text/javascript" th:src="@{/jquery-validation/jquery.validate.min.js}"></script>
+        <script type="text/javascript" th:src="@{/jquery-validation/localization/messages_zh.min.js}"></script>
+        <!-- layer -->
+        <script type="text/javascript" th:src="@{/layer/layer.js}"></script>
+        <!-- md5.js -->
+        <script type="text/javascript" th:src="@{/js/md5.min.js}"></script>
+        <!-- common.js -->
+        <script type="text/javascript" th:src="@{/js/common.js}"></script>
+        <script>
+            function registerUser() {
+                var phoneNumber = document.getElementById("phone").value;
+                var password = document.getElementById("password").value;
+
+                //前端校验
+                if(phoneNumber.length < 11){
+                    alert("输入的手机号请大于等于11位!");
+                    return false;
+                }
+                if(password.length < 6){
+                    alert("输入的密码请大于等于6位!");
+                    return false;
+                }
+
+                // 向后端发送请求进行手机号检验
+                g_showLoading();
+                var salt = g_passsword_salt;
+                var str = "" + salt.charAt(0) + salt.charAt(7) + password +
+                    salt.charAt(1) + salt.charAt(6);
+                password = md5(str);
+
+                $.ajax({
+                    url: "/login/doRegister",
+                    type: "POST",
+                    data: {
+                        mobile: phoneNumber,
+                        password: password
+                    },
+                    success: function (data) {
+
+                        layer.closeAll();
+                        if (data.code == 200) {
+                            layer.msg("成功");
+                            alert("注册成功!");
+                            window.location.href='/login/toLogin';
+                        } else {
+                            layer.msg(data.message);
+                        }
+                    },
+                    error: function () {
+                        layer.closeAll();
+                    }
+                });
+            }
+
+            function toLogin(){
+                window.location.href='/login/toLogin';
+            }
+        </script>
+    </head>
+    <body>
+    <div class="container">
+        <h1>用户注册</h1>
+        <label for="phone">请输入手机号码：</label>
+        <input type="text" id="phone" name="phone" placeholder="请输入手机号">
+        <label for="password">请输入密码：</label>
+        <input type="password" id="password" name="password" placeholder="请输入密码">
+        <button type="button" onclick="registerUser()">注册</button>
+        <button onclick="toLogin()">返回登录</button>
+    </div>
+    </body>
+</html>

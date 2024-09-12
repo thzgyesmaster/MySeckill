@@ -44,4 +44,5 @@ public class RedisConfig {
         redisScript.setResultType(Long.class);
         return redisScript;
     }
+
 }
